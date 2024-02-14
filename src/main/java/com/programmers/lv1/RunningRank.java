@@ -1,6 +1,6 @@
 package com.programmers.lv1;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 public class RunningRank {
@@ -9,8 +9,8 @@ public class RunningRank {
      */
     public String[] solution(String[] players, String[] callings) {
 
-        Map<Integer, String> rankPlayerMap = new LinkedHashMap<>();
-        Map<String, Integer> playerRankMap = new LinkedHashMap<>();
+        Map<Integer, String> rankPlayerMap = new HashMap<>();
+        Map<String, Integer> playerRankMap = new HashMap<>();
         for (int i = 0; i < players.length; i++) {
             rankPlayerMap.put(i + 1, players[i]);
             playerRankMap.put(players[i], i + 1);
