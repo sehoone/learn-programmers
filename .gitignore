@@ -1,0 +1,6 @@
+# maven project gitingore
+target/
+*.iml
+
+# visual studio code
+.vscode/
