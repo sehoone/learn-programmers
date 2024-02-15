@@ -38,5 +38,22 @@ public class OurPassword {
         }
 
         return answer;
+
+        // 다른 사람 풀이. char의 index가 알파벳의 순서와 동일하다는 것을 이용하여 풀이
+        // StringBuilder answer = new StringBuilder();
+
+        // for (char letter : s.toCharArray()) {
+        //     char temp = letter;
+        //     int idx = 0;
+        //     while (idx < index) {
+        //         temp = temp == 'z' ? 'a' : (char) (temp + 1);
+        //         if (!skip.contains(String.valueOf(temp))) {
+        //             idx += 1;
+        //         }
+        //     }
+        //     answer.append(temp);
+        // }
+
+        // return answer.toString();
     }
 }
