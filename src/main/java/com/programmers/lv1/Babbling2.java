@@ -35,37 +35,68 @@ public class Babbling2 {
     //     return answer;
     // }
 
-    // 소스정리
+    // 소스정리1
+    // public int solution(String[] babbling) {
+    //     int answer = 0;
+    //     String[] speaks = { "aya", "ye", "woo", "ma" };
+    //     List<String> speakList = Arrays.asList(speaks);
+    
+    //     for (String babble : babbling) {
+    //         String previousWord = "";
+    //         boolean isValid = true;
+    
+    //         while (!babble.isEmpty()) {
+    //             boolean found = false;
+    //             for (String speak : speakList) {
+    //                 if (babble.startsWith(speak) && !speak.equals(previousWord)) {
+    //                     previousWord = speak;
+    //                     babble = babble.substring(speak.length());
+    //                     found = true;
+    //                     break;
+    //                 }
+    //             }
+    //             if (!found) {
+    //                 isValid = false;
+    //                 break;
+    //             }
+    //         }
+    
+    //         if (isValid) {
+    //             answer++;
+    //         }
+    //     }
+    
+    //     return answer;
+    // }
+
+    // 소스정리2
     public int solution(String[] babbling) {
         int answer = 0;
         String[] speaks = { "aya", "ye", "woo", "ma" };
         List<String> speakList = Arrays.asList(speaks);
-    
+        
         for (String babble : babbling) {
-            String previousWord = "";
-            boolean isValid = true;
-    
-            while (!babble.isEmpty()) {
-                boolean found = false;
-                for (String speak : speakList) {
-                    if (babble.startsWith(speak) && !speak.equals(previousWord)) {
-                        previousWord = speak;
-                        babble = babble.substring(speak.length());
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) {
-                    isValid = false;
-                    break;
+            StringBuilder sb = new StringBuilder();
+            String lastMatched = "";
+            String remaining = babble;
+            
+            for (int i = 0; i < babble.length(); i++) {
+                char currentChar = babble.charAt(i);
+                sb.append(currentChar);
+                String currentStr = sb.toString();
+                
+                if (speakList.contains(currentStr) && !lastMatched.equals(currentStr)) {
+                    lastMatched = currentStr;
+                    remaining = remaining.replaceFirst(currentStr, "");
+                    sb.setLength(0);
                 }
             }
-    
-            if (isValid) {
+            
+            if (remaining.isEmpty()) {
                 answer++;
             }
         }
-    
+        
         return answer;
     }
     
